@@ -15,8 +15,8 @@ export default function RQProvider({ children }: Props) {
         queries: {
           refetchOnWindowFocus: false,
           retryOnMount: true,
-          refetchOnReconnect: false,
-          retry: false,
+          refetchOnReconnect: false, // 인터넷 연결이 끊겼다가 재접속 후 데이터 가져오기
+          retry: false, // 데이터 fetch 실패 경우 재시도
         },
       },
     })

@@ -10,7 +10,11 @@ import { getPhotos } from "../_lib/getPhotos";
 import Photo from "./Photo";
 
 export default function PhotoContainer() {
-  const { data: photos } = useQuery<IPhoto[]>({ queryKey: ["photos"], queryFn: getPhotos });
+  /**
+   * staleTime: fresh → stale로 가는 시간 설정
+   * staleTime: Infinity // 항상 fresh 상태
+   * */
+  const { data: photos } = useQuery<IPhoto[]>({ queryKey: ["photos"], queryFn: getPhotos, staleTime: 60 * 1000 });
 
   return (
     <section className={styles.cont}>
