@@ -4,7 +4,7 @@ export const getPhotos = async () => {
   // https://jsonplaceholder.typicode.com/photos
   const res = await fetch(`https://jsonplaceholder.typicode.com/photos?albumId=1`, {
     next: {
-      tags: ["photos"],
+      tags: ["photos"], // react cache아니라 server쪽 cache
     },
     cache: "no-store",
   });
