@@ -2,13 +2,13 @@
 
 import styles from "./css/photo.module.css";
 
-import React from "react";
+import React, { Fragment } from "react";
 import { useQuery } from "@tanstack/react-query";
 
 import { Photo as IPhoto } from "@/types/Photo";
 import { getPhotos } from "../_lib/getPhotos";
 
-import Photo from "./Photo";
+import PhotoItem from "./PhotoItem";
 
 export default function PhotoContainer() {
   /**
@@ -35,9 +35,9 @@ export default function PhotoContainer() {
           photos.length > 0 &&
           photos.map((photo: IPhoto) => {
             return (
-              <>
-                <Photo photo={photo} />
-              </>
+              <Fragment key={`photo_list_${photo.id}`}>
+                <PhotoItem photo={photo} />
+              </Fragment>
             );
           })}
       </section>

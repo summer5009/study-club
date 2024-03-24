@@ -1,4 +1,4 @@
-import { revalidateTag } from "next/cache";
+import { revalidateTag, revalidatePath } from "next/cache";
 
 export const getPhotos = async () => {
   // https://jsonplaceholder.typicode.com/photos
